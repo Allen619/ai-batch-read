@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜索首页</title>
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    .search-box {
+      width: 500px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 24px;
+      outline: none;
+    }
+
+    .search-box:focus {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #4285f4;
+      color: white;
+      cursor: pointer;
+    }
+
+    .search-btn:hover {
+      background-color: #357abd;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <form action="/search" method="GET">
+      <input type="text" name="q" class="search-box" placeholder="请输入搜索关键词...">
+      <br>
+      <button type="submit" class="search-btn">搜索</button>
+    </form>
+  </div>
+</body>
+
+</html>

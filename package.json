@@ -1,0 +1,28 @@
+{
+  "name": "my-search",
+  "type": "commonjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ai-sdk/openai": "^1.0.13",
+    "@langchain/core": "^0.3.27",
+    "@langchain/openai": "^0.3.16",
+    "ai": "^4.0.27",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2",
+    "langchain": "^0.1.37",
+    "openai": "^4.77.3",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
