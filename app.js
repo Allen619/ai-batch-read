@@ -1,11 +1,12 @@
 const express = require('express');
-const aiRoutes = require('./routes/ai.routes.js');
+const aiRoutes = require('./routes/ai.routes');
 
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/api/ai', aiRoutes);
 app.use(express.static('public'));
-app.use('/api', aiRoutes);
 
 // 错误处理中间件
 app.use((err, req, res, next) => {
