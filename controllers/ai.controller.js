@@ -43,39 +43,19 @@ class AIController {
         });
       }
 
-      let queryArray;
-      // 尝试解析字符串为数组
-      if (typeof queries === 'string') {
-        try {
-          const parsed = JSON.parse(queries);
-          queryArray = Array.isArray(parsed) ? parsed : [parsed];
-        } catch (e) {
-          return res.status(400).json({
-            success: false,
-            message: '请求参数错误：queries 格式无效',
-          });
-        }
-      } else {
-        queryArray = queries;
-      }
+      // 将字符串按逗号分割成数组
+      let queryArray =
+        typeof queries === 'string'
+          ? queries.split(',').map((q) => q.trim())
+          : queries;
 
-      // 严格验证数组
-      if (!Array.isArray(queryArray)) {
-        return res.status(400).json({
-          success: false,
-          message: '请求参数错误：queries 必须是数组',
-        });
-      }
-
-      // 过滤掉空字符串并验证
-      queryArray = queryArray.filter((q) => {
-        return typeof q === 'string' && q.trim().length > 0;
-      });
+      // 过滤掉空字符串
+      queryArray = queryArray.filter((q) => q && q.trim().length > 0);
 
       if (queryArray.length === 0) {
         return res.status(400).json({
           success: false,
-          message: '请求参数错误：queries 数组必须包含非空字符串',
+          message: '请求参数错误：queries 必须包含非空内容',
         });
       }
 
